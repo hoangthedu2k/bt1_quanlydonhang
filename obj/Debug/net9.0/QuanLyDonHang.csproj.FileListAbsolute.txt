@@ -1,0 +1,14 @@
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\bin\Debug\net9.0\QuanLyDonHang.exe
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\bin\Debug\net9.0\QuanLyDonHang.deps.json
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\bin\Debug\net9.0\QuanLyDonHang.runtimeconfig.json
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\bin\Debug\net9.0\QuanLyDonHang.dll
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\bin\Debug\net9.0\QuanLyDonHang.pdb
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.GeneratedMSBuildEditorConfig.editorconfig
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.AssemblyInfoInputs.cache
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.AssemblyInfo.cs
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.csproj.CoreCompileInputs.cache
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.dll
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\refint\QuanLyDonHang.dll
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.pdb
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.genruntimeconfig.cache
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\ref\QuanLyDonHang.dll
