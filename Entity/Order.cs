@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDonHang.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace QuanLyDonHang.Entity
 
         public double TotalAmount { get; set; }
 
-        public string Status { get; set; } = string.Empty;
+        public OrderStatus Status { get; set; } = OrderStatus.New;
 
         public string GetSummary()
         {

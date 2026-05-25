@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyDonHang.Service
 {
-    internal interface IOrderRepository
+    public interface IOrderRepository
     {
         public List<Order> GetAll();
         public Order GetById(Guid id);

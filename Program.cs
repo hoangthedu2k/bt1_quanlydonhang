@@ -22,7 +22,12 @@ do { Console.WriteLine("Nhấn phím bất kỳ để tiếp tục...");
     {
         case "1":
             var orders = repository.GetAll();
-            Console.WriteLine($"Tổng số đơn hàng: {orders.Count}");
+            foreach(Order item in orders)
+            {
+                Console.WriteLine(item.Id);
+                Console.WriteLine(item.GetSummary());
+                Console.WriteLine(item.Status);
+            }
             break;
         case "2":
             Console.Write("Nhập ID đơn hàng: ");
@@ -31,12 +36,20 @@ do { Console.WriteLine("Nhấn phím bất kỳ để tiếp tục...");
             Console.WriteLine(order != null ? order.GetSummary() : "Không tìm thấy đơn hàng.");
             break;
         case "3":
+            Console.Write("Tên khách hàng: ");
+            string customerName = Console.ReadLine() ?? string.Empty;
+            Console.WriteLine("Tên sản phẩm (Ngan cach nhau boi dau phay): ");
+            var itemInput = Console.ReadLine() ?? string.Empty;
+            var items = itemInput.Split(',').Select(i => i.Trim()).ToList();
+            Console.WriteLine("Tổng số tiền: ");
+            double price = Convert.ToDouble(Console.ReadLine());
+
             var newOrder = new Order
             {
-                Customer = new Customer { FullName = "Khách hàng mới" },
-                Items = new List<string> { "Sản phẩm A", "Sản phẩm B" },
-                TotalAmount = 100.0,
-                Status = "Mới"
+                Customer = new Customer { FullName = customerName },
+                Items = items,
+                TotalAmount = price,
+                Status = OrderStatus.Processing
             };
             repository.Add(newOrder);
             break;
@@ -45,14 +58,18 @@ do { Console.WriteLine("Nhấn phím bất kỳ để tiếp tục...");
             Guid updateId = Guid.Parse(Console.ReadLine() ?? Guid.Empty.ToString());
             Console.Write("Nhập trạng thái mới: ");
             string newStatus = Console.ReadLine() ?? string.Empty;
-            bool updated = repository.UpdateStatus(updateId, (OrderStatus)Enum.Parse(typeof(OrderStatus), newStatus));
-            if (updated)
+            if (!Enum.TryParse(newStatus, out OrderStatus parsedStatus))
             {
-                Console.WriteLine("Trạng thái đơn hàng đã được cập nhật.");
+                Console.WriteLine("Trạng thái không hợp lệ.");
+                break;
+            }
+            if (!repository.UpdateStatus(updateId, parsedStatus))
+            {
+                Console.WriteLine("Không thể cập nhật trạng thái đơn hàng.");
             }
             else
             {
-                Console.WriteLine("Không thể cập nhật trạng thái đơn hàng.");
+                Console.WriteLine("Trạng thái đơn hàng đã được cập nhật.");
             }
             break;
         case "0":

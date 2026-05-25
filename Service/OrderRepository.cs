@@ -31,7 +31,7 @@ namespace QuanLyDonHang.Service
             var order = GetById(id);
             if (order == null) return false;
 
-            order.Status = status.ToString();
+            order.Status = status;
             return true;
         }
     }
