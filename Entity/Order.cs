@@ -14,7 +14,7 @@ namespace QuanLyDonHang.Entity
 
         public double TotalAmount { get; set; }
 
-        public OrderStatus Status { get; set; } = OrderStatus.New;
+        public OrderStatus Status { get; set; } = OrderStatus.Pending;
 
         public string GetSummary()
         {
