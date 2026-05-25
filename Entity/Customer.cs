@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyDonHang.Entity
 {
-    internal class Customer : BaseEntity
+    public class Customer : BaseEntity
     {
         public string FullName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;

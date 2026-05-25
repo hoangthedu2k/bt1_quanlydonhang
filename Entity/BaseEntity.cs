@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace QuanLyDonHang.Entity
 {
-    internal class BaseEntity
+    public class BaseEntity
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-        public DateTime CreateAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

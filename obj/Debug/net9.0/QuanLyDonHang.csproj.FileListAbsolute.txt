@@ -12,3 +12,4 @@ C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\refint\Q
 C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.pdb
 C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.genruntimeconfig.cache
 C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\ref\QuanLyDonHang.dll
+C:\MyWork\Roadmap .NET\BT1\QuanLyDonHang\QuanLyDonHang\obj\Debug\net9.0\QuanLyDonHang.sourcelink.json

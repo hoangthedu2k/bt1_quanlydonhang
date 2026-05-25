@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using QuanLyDonHang.Entity;
+using QuanLyDonHang.Enum;
 using QuanLyDonHang.Service;
 
 // obtain an implementation of IOrderRepository (replace with your concrete instance or DI)
@@ -25,7 +26,7 @@ do { Console.WriteLine("Nhấn phím bất kỳ để tiếp tục...");
             break;
         case "2":
             Console.Write("Nhập ID đơn hàng: ");
-            int id = int.Parse(Console.ReadLine() ?? "0");
+            Guid id = Guid.Parse(Console.ReadLine() ?? Guid.Empty.ToString());
             var order = repository.GetById(id);
             Console.WriteLine(order != null ? order.GetSummary() : "Không tìm thấy đơn hàng.");
             break;
@@ -41,10 +42,10 @@ do { Console.WriteLine("Nhấn phím bất kỳ để tiếp tục...");
             break;
         case "4":
             Console.Write("Nhập ID đơn hàng cần cập nhật: ");
-            int updateId = int.Parse(Console.ReadLine() ?? "0");
+            Guid updateId = Guid.Parse(Console.ReadLine() ?? Guid.Empty.ToString());
             Console.Write("Nhập trạng thái mới: ");
             string newStatus = Console.ReadLine() ?? string.Empty;
-            bool updated = repository.UpdateStatus(updateId, newStatus);
+            bool updated = repository.UpdateStatus(updateId, (OrderStatus)Enum.Parse(typeof(OrderStatus), newStatus));
             if (updated)
             {
                 Console.WriteLine("Trạng thái đơn hàng đã được cập nhật.");

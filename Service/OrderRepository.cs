@@ -1,4 +1,5 @@
 ﻿using QuanLyDonHang.Entity;
+using QuanLyDonHang.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,26 +8,30 @@ using System.Threading.Tasks;
 
 namespace QuanLyDonHang.Service
 {
-    internal class OrderRepository : IOrderRepository
+    public class OrderRepository : IOrderRepository
     {
+        List<Order> _orders= new();
         public void Add(Order order)
         {
-            Console.WriteLine("Order added: " + order.Id);
+            _orders.Add(order);
         }
 
         public List<Order> GetAll()
         {
-            Console.WriteLine("Retrieving all orders..."); return new List<Order>();
+            return _orders;
         }
 
-        public Order GetById(int id)
+        public Order? GetById(Guid id)
         {
-            Console.WriteLine("Retrieving order with ID: " + id); return new Order();
+            return _orders.FirstOrDefault(o => o.Id == id);
         }
 
-        public bool UpdateStatus(int id, string status)
+        public bool UpdateStatus(Guid id, OrderStatus status)
         {
-            Console.WriteLine("Updating status for order with ID: " + id + " to: " + status);
+            var order = GetById(id);
+            if (order == null) return false;
+
+            order.Status = status.ToString();
             return true;
         }
     }

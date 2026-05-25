@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyDonHang.Entity
 {
-    internal class Order : BaseEntity
+    public class Order : BaseEntity
     {
         public Customer Customer { get; set; } = new Customer();
         public List<string> Items { get; set; } = new List<string>();
