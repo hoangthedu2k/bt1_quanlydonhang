@@ -1,5 +1,7 @@
 ﻿using QuanLyDonHang.Entity;
 using QuanLyDonHang.Enum;
+using QuanLyDonHang.Message.Request;
+using QuanLyDonHang.Message.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +12,13 @@ namespace QuanLyDonHang.Service
 {
     public interface IOrderRepository
     {
-        public List<Order> GetAll();
-        public Order GetById(Guid id);
+        public Task<List<Order>> GetAllAsync();
+        public Task<Order?> GetByIdAsync(Guid id);
 
-        public void Add(Order order);
-        public bool UpdateStatus(Guid id, OrderStatus status);
+        public Task<OrderResponse> AddAsync(CreateOrderRequest req);
+        public Task<bool> UpdateStatusAsync(Guid id, OrderStatus status);
+
+        public Task<object> StatisticalAsync();
 
 
 
