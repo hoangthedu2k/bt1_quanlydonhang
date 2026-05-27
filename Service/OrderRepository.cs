@@ -14,6 +14,8 @@ namespace QuanLyDonHang.Service
     public class OrderRepository : IOrderRepository
     {
         List<Order> _orders= new();
+
+
         public async Task<OrderResponse> AddAsync(CreateOrderRequest req)
         {
           
@@ -25,27 +27,27 @@ namespace QuanLyDonHang.Service
                 Status = req.Status,
             };
             _orders.Add(order);
-            return QuanLyDonHang.Helper.OrderConvert.ToOrderResponse(order);
+            return await Task.FromResult(QuanLyDonHang.Helper.OrderConvert.ToOrderResponse(order));
 
         }
 
         public async Task<List<Order>> GetAllAsync()
         {
             return await Task.FromResult(_orders);
-        }
+        }       
 
         public async Task<Order?> GetByIdAsync(Guid id)
         {
-            return _orders.FirstOrDefault(o => o.Id == id);
+            return await Task.FromResult(_orders.FirstOrDefault(o => o.Id == id));
         }
 
-        public async Task<object> StatisticalAsync()
+        public async Task<List<OrderStatistic>> StatisticalAsync()
         {
            var stats = _orders
                 .GroupBy(o => o.Status)
-                .Select(g => new { Status = g.Key, Count = g.Count(), TotalRevenue = g.Sum(x => x.TotalAmount) })
+                .Select(g => new OrderStatistic(g.Key, g.Count(), g.Sum(x => x.TotalAmount)))
                 .ToList();
-            return stats;
+            return await Task.FromResult(stats);
         }
 
         public async Task<bool> UpdateStatusAsync(Guid id, OrderStatus status)
@@ -54,7 +56,7 @@ namespace QuanLyDonHang.Service
             if (order == null) return false;
 
             order.Status = status;
-            return true;
+            return await Task.FromResult(true);
         }
     }
 }

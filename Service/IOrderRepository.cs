@@ -18,7 +18,7 @@ namespace QuanLyDonHang.Service
         public Task<OrderResponse> AddAsync(CreateOrderRequest req);
         public Task<bool> UpdateStatusAsync(Guid id, OrderStatus status);
 
-        public Task<object> StatisticalAsync();
+        public Task<List<OrderStatistic>> StatisticalAsync();
 
 
 
