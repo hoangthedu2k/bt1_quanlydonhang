@@ -76,18 +76,13 @@ do { Console.WriteLine("Nhấn phím bất kỳ để tiếp tục...");
             break;
         case "5":
             var statisticalObj = await repository.StatisticalAsync();
-            if (statisticalObj is IEnumerable<dynamic> statisticalData)
-            {
+            
                 Console.WriteLine("Số lượng đơn hàng theo trạng thái:");
-                foreach (var item in statisticalData)
+                foreach (var item in statisticalObj)
                 {
                     Console.WriteLine($"  {item.Status}: {item.Count}, Doanh thu: {item.TotalRevenue}");
                 }
-            }
-            else
-            {
-                Console.WriteLine("Repository returned an unexpected type for StatisticalAsync.");
-            }
+           
             break;
         case "0":
             Console.WriteLine("Thoát chương trình.");
