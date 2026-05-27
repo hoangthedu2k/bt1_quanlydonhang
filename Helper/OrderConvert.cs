@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyDonHang.Helper
 {
-    public class Convert
+    public static class OrderConvert
     {
         public static OrderResponse ToOrderResponse(Entity.Order order)
         {

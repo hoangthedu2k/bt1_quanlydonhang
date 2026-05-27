@@ -16,24 +16,22 @@ namespace QuanLyDonHang.Service
         List<Order> _orders= new();
         public async Task<OrderResponse> AddAsync(CreateOrderRequest req)
         {
-            if (!System.Enum.TryParse(req.Status, ignoreCase: true, out OrderStatus parsedStatus))
-            {
-                throw new ArgumentException("Trạng thái không hợp lệ.");
-            }
+          
             Order order = new Order
             {
                 Customer = new Customer { FullName = req.CustomerName },
                 Items = req.Items,
                 TotalAmount = req.TotalAmount,
-                Status = parsedStatus
+                Status = req.Status,
             };
             _orders.Add(order);
-            return new OrderResponse(order.Id, order.Customer.FullName, order.TotalAmount, order.Status, order.CreatedAt);
+            return QuanLyDonHang.Helper.OrderConvert.ToOrderResponse(order);
+
         }
-            
+
         public async Task<List<Order>> GetAllAsync()
         {
-            return _orders;
+            return await Task.FromResult(_orders);
         }
 
         public async Task<Order?> GetByIdAsync(Guid id)

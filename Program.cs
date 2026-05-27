@@ -46,7 +46,7 @@ do { Console.WriteLine("Nhấn phím bất kỳ để tiếp tục...");
             var items = itemInput.Split(',').Select(i => i.Trim()).ToList();
             Console.WriteLine("Tổng số tiền: ");
             double price = Convert.ToDouble(Console.ReadLine());
-            CreateOrderRequest request = new CreateOrderRequest(customerName, items, price, OrderStatus.Processing.ToString());
+            CreateOrderRequest request = new CreateOrderRequest(customerName, items, price, OrderStatus.Processing);
 
             var newOrder = await repository.AddAsync(request);
             Console.WriteLine($"Đơn hàng đã được tạo: ");
